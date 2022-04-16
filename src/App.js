@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Fade from 'react-reveal/Fade';
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <footer>
+        <Fade bottom>
+          <h1>React Reveal</h1>
+        </Fade>
+      </footer>
     </div>
   );
 }
