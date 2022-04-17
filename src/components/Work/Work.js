@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Zoom } from 'react-reveal';
+import { Link } from 'react-router-dom';
 import './Work.css'
 const Work = (props) => {
     const { serviceName, description, image, price } = props.service
+
     return (
 
         <div className='col-lg-4 d-flex justify-content-center mt-5'>
@@ -19,7 +21,7 @@ const Work = (props) => {
                             Price: <span style={{ color: 'goldenrod' }}>{price}</span>
 
                         </Card.Text>
-                        <button className='btn'>Go somewhere</button>
+                        <Link className='btn' to='/checkout'>Go somewhere</Link>
                     </Card.Body>
                 </Card>
             </Zoom>

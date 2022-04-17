@@ -1,9 +1,13 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Zoom } from 'react-reveal';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Header.css'
 const Header = () => {
+    const [user] = useAuthState(auth);
     return (
         <div className='navigation '>
             <Zoom top>
@@ -18,7 +22,10 @@ const Header = () => {
                             </Nav>
                             <Nav>
                                 <Nav.Link href="#services">services</Nav.Link>
-                                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                                {
+                                    user ? <button className='btn' >Sign Out</button> : <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                }
+
                                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
