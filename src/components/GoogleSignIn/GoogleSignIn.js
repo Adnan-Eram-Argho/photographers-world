@@ -3,7 +3,7 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import google from '../../images/logo/google.png'
 const GoogleSignIn = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user] = useSignInWithGoogle(auth);
     const handleGoogleSignIn = () => {
         signInWithGoogle();
         console.log(user)

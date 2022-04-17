@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import GoogleSignIn from '../../GoogleSignIn/GoogleSignIn';
@@ -13,7 +13,7 @@ const SignIn = () => {
     const [email1, setEmail1] = useState('')
     const [pass2, setPass2] = useState('')
 
-    const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
 
     const handleEmailLogin = (e) => {
         setEmail1(e.target.value)

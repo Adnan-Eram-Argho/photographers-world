@@ -13,8 +13,7 @@ const Login = () => {
 
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
+
         error,
 
     ] = useCreateUserWithEmailAndPassword(auth);

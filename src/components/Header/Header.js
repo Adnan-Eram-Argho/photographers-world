@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Zoom } from 'react-reveal';
 import { Link } from 'react-router-dom';
@@ -24,18 +24,13 @@ const Header = () => {
 
                             </Nav>
                             <Nav>
-                                <Nav.Link href="#services">services</Nav.Link>
+                                <Nav.Link href="/#services">services</Nav.Link>
+
+                                <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+                                <Nav.Link as={Link} to="/about">About me</Nav.Link>
                                 {
                                     user ? <button className='btn' onClick={handleSignOut}>Sign Out</button> : <Nav.Link as={Link} to="/login">Sign up</Nav.Link>
                                 }
-
-                                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                </NavDropdown>
 
                             </Nav>
                         </Navbar.Collapse>
