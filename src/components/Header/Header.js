@@ -8,6 +8,9 @@ import auth from '../../firebase.init';
 import './Header.css'
 const Header = () => {
     const [user] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth)
+    }
     return (
         <div className='navigation '>
             <Zoom top>
@@ -23,7 +26,7 @@ const Header = () => {
                             <Nav>
                                 <Nav.Link href="#services">services</Nav.Link>
                                 {
-                                    user ? <button className='btn' >Sign Out</button> : <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                    user ? <button className='btn' onClick={handleSignOut}>Sign Out</button> : <Nav.Link as={Link} to="/login">Sign up</Nav.Link>
                                 }
 
                                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

@@ -3,7 +3,8 @@ import { Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import './Login.css'
+import { Link } from 'react-router-dom';
+import './Signup.css'
 const Login = () => {
     let navigate = useNavigate();
     let location = useLocation();
@@ -25,14 +26,18 @@ const Login = () => {
         console.log(pass)
     }
     const handleUserLogIn = (e) => {
+
         e.preventDefault();
+
         console.log(e.target)
-        createUserWithEmailAndPassword(email, pass)
-        navigate(from, { replace: true });
+        createUserWithEmailAndPassword(email, pass).then(() => navigate(from, { replace: true }))
+
     }
     return (
         <div className='login'>
+
             <div className='login-form'>
+                <h1>Sign up</h1>
                 <Form onSubmit={handleUserLogIn}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -48,8 +53,9 @@ const Login = () => {
                     </Form.Group>
 
                     <button className='btn' variant="primary" type="submit">
-                        Submit
+                        Sign up
                     </button>
+                    <Link to='/signin'>Already have an Account?</Link>
                 </Form>
             </div>
         </div>
