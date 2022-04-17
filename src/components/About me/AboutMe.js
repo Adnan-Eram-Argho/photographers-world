@@ -45,7 +45,7 @@ const AboutMe = () => {
                 </Wobble>
             </div>
             <div className="row mt-5">
-                <div className="col-md-6 col-12 d-flex justify-content-center">
+                <div className="col-md-6 col-12 d-flex justify-content-center ">
                     <div className='text-center'>
                         <h3 >My skill set</h3>
 
@@ -61,7 +61,7 @@ const AboutMe = () => {
                         </FunnelChart>
                     </div>
                 </div>
-                <div className="col-md-6 col-12 text-center">
+                <div className="col-md-6 col-12 text-center ">
                     <Wobble>
                         <p >“Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.” — Mark Twain</p>
                     </Wobble>

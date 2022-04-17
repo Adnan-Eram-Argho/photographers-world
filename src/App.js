@@ -13,6 +13,7 @@ import CheckOut from './components/CheckOut/CheckOut';
 import SignIn from './components/loginOrSignup/SignIn/SignIn';
 import NotFound from './components/NotFound/NotFound';
 import AboutMe from './components/About me/AboutMe';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signin' element={<SignIn></SignIn>}></Route>
         <Route path="/about" element={<AboutMe></AboutMe>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/checkout' element={<RequireAuth>
           <CheckOut></CheckOut>
         </RequireAuth>}> </Route>
