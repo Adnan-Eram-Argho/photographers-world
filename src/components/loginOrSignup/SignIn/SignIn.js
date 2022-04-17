@@ -3,6 +3,8 @@ import { Form } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import GoogleSignIn from '../../GoogleSignIn/GoogleSignIn';
+
 
 const SignIn = () => {
     let navigate = useNavigate();
@@ -55,6 +57,7 @@ const SignIn = () => {
                     </button><br />
                     <Link to='/login'>Dont have an Account?</Link>
                 </Form>
+                <GoogleSignIn></GoogleSignIn>
             </div>
         </div>
     );

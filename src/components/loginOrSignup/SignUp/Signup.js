@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { Link } from 'react-router-dom';
 import './Signup.css'
+import GoogleSignIn from '../../GoogleSignIn/GoogleSignIn';
 const Login = () => {
     let navigate = useNavigate();
     let location = useLocation();
@@ -60,6 +61,7 @@ const Login = () => {
                     </button><br />
                     <Link to='/signin'>Already have an Account?</Link>
                 </Form>
+                <GoogleSignIn></GoogleSignIn>
             </div>
         </div>
     );
