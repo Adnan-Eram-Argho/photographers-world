@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Zoom } from 'react-reveal';
+import { Link } from 'react-router-dom';
 import './Header.css'
 const Header = () => {
     return (
@@ -8,7 +9,7 @@ const Header = () => {
             <Zoom top>
                 <Navbar collapseOnSelect expand="lg" >
                     <Container>
-                        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                        <Navbar.Brand as={Link} to="/">Photographers World</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
@@ -16,7 +17,7 @@ const Header = () => {
 
                             </Nav>
                             <Nav>
-                                <Nav.Link href="#features">Features</Nav.Link>
+                                <Nav.Link href="#services">services</Nav.Link>
                                 <Nav.Link href="#pricing">Pricing</Nav.Link>
                                 <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -31,7 +32,7 @@ const Header = () => {
                     </Container>
                 </Navbar>
             </Zoom>
-        </div>
+        </div >
     );
 };
 

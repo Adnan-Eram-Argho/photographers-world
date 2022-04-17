@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "serviceName": "Wedding photography",
+        "description": "Are you in need of a wedding Photographer? I am here for you I have worked in many weddings",
+        "image": "https://img.freepik.com/free-photo/wedding-archway-backyard-happy-wedding-couple-outdoors-before-wedding-ceremony_8353-11057.jpg?t=st=1650176140~exp=1650176740~hmac=b44ce1cb28dbf791cfb84ac7bfe879c79d108c60e779852a509a37b44fbcb396",
+        "price": "3000tk"
+    },
+    {
+        "id": 2,
+        "serviceName": "WildLife Photography",
+        "description": "I am also a professional wildlife photographer.So if you want any kind of wild life photos I am Always here for you",
+        "image": "https://img.freepik.com/free-photo/shallow-focus-shot-male-lion-resting-grass-field_181624-15831.jpg?t=st=1650176311~exp=1650176911~hmac=7bcd98ff3aa4d69b87f4fd4d1050eccdb843f69cd57512f608ebb771cbe612cf",
+        "price": "5000tk"
+    },
+    {
+        "id": 3,
+        "serviceName": "Personal Photography",
+        "description": "Photography is an unique skill not everyone is an expert i8nit i don't consider myself as an expert but I have 3 yrs of experience in it so if you want any kind of photo graphy I am always here for you",
+        "image": "https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?t=st=1650173894~exp=1650174494~hmac=7f2113f1344ad06562f7d6e0d8cb68391707d457429c03bac38f6329cbd3a677",
+        "price": "1000tk"
+    }
+]
