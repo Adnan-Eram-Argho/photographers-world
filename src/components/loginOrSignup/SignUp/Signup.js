@@ -31,7 +31,9 @@ const Login = () => {
     const handleUserLogIn = (e) => {
 
         e.preventDefault();
-        console.log(error?.message)
+        if (error) {
+            console.log(error)
+        }
         console.log(e.target)
         createUserWithEmailAndPassword(email, pass).then(() => navigate(from, { replace: true }))
 
