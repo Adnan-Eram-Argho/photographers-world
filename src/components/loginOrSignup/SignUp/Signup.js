@@ -12,6 +12,9 @@ const Login = () => {
 
     const [
         createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
 
     ] = useCreateUserWithEmailAndPassword(auth);
     const [email, setEmail] = useState('')
@@ -28,7 +31,7 @@ const Login = () => {
     const handleUserLogIn = (e) => {
 
         e.preventDefault();
-
+        console.log(error?.message)
         console.log(e.target)
         createUserWithEmailAndPassword(email, pass).then(() => navigate(from, { replace: true }))
 
@@ -54,7 +57,7 @@ const Login = () => {
 
                     <button className='btn' variant="primary" type="submit">
                         Sign up
-                    </button>
+                    </button><br />
                     <Link to='/signin'>Already have an Account?</Link>
                 </Form>
             </div>

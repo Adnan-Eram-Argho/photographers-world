@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const SignIn = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location?.state?.from?.pathname || "/";
-    const [email1, setEmail] = useState('')
-    const [pass2, setPass] = useState('')
+    const [email1, setEmail1] = useState('')
+    const [pass2, setPass2] = useState('')
 
     const [signInWithEmailAndPassword, user, error, loading] = useSignInWithEmailAndPassword(auth);
 
     const handleEmailLogin = (e) => {
-        setEmail(e.target.value)
+        setEmail1(e.target.value)
         console.log(email1)
     }
     const handlePassLogin = (e) => {
-        setPass(e.target.value)
+        setPass2(e.target.value)
         console.log(pass2)
     }
-    const handleUserSignIn = (e) => {
+    const handleUserSignIn = async (e) => {
         e.preventDefault();
 
-        signInWithEmailAndPassword(email1, pass2)
-        if (user) {
-            navigate(from, { replace: true });
-        }
+        await signInWithEmailAndPassword(email1, pass2);
+
+        console.log(user)
+        navigate(from, { replace: true })
+
 
     }
     return (
@@ -51,7 +52,8 @@ const SignIn = () => {
 
                     <button className='btn' variant="primary" type="submit">
                         Log in
-                    </button>
+                    </button><br />
+                    <Link to='/login'>Dont have an Account?</Link>
                 </Form>
             </div>
         </div>
