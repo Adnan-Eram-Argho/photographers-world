@@ -1,4 +1,5 @@
 import React from 'react';
+import Photos from '../Photos/Photos';
 import Works from '../Works/Works';
 import Banner from './Banner/Banner';
 
@@ -11,6 +12,7 @@ const Main = () => {
             <Banner ></Banner>
             <div className='container'>
                 <Works></Works>
+                <Photos></Photos>
             </div>
 
         </div >
