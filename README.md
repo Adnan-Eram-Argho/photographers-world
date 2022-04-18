@@ -8,4 +8,4 @@ Open [this link](https://photographers-world-4c2dc.web.app) to view it in your b
 *in the login page you can login using google or email and password system
 *and the about me section you can learn more about me
 *there are some common question answered in blogs
-*i use recharts,react router,react reveal,and many other library's in this project
+*i use recharts,react router,react reveal,react-hooks-forms and many other library's in this project

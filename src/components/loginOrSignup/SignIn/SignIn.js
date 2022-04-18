@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import GoogleSignIn from '../../GoogleSignIn/GoogleSignIn';
 import Loading from '../../Loading/Loading';
@@ -29,13 +30,17 @@ const SignIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    // password reset
+    const [sendPasswordResetEmail, sending2, error2] = useSendPasswordResetEmail(
+        auth
+    )
     //loading
-    if (loading) {
+    if (loading || sending2) {
         return <><Loading></Loading></>
     }
     //error handeling
     let errorElement;
-    if (error) {
+    if (error || error2) {
         console.log(error?.message)
         errorElement = <div>
             <p className='text-danger'>Error: {error?.message}</p>
@@ -77,9 +82,17 @@ const SignIn = () => {
                     <button className='btn' variant="primary" type="submit">
                         Log in
                     </button><br />
+                    <button className='btn mt-3'
+                        onClick={async () => {
+                            await sendPasswordResetEmail(email1);
+                            toast('Sent email');
+                        }}
+                    >
+                        Reset password
+                    </button> <br />
                     <Link to='/login'>Dont have an Account?</Link>
                 </Form>
-
+                <ToastContainer />
                 <div> {
                     errorElement
                 }</div>

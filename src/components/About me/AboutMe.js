@@ -64,6 +64,7 @@ const AboutMe = () => {
                 <div className="col-md-6 col-12 text-center ">
                     <Wobble>
                         <p >“Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.” — Mark Twain</p>
+                        <p>After becoming a full stack dev I will work hard and get my self admitted to a good university</p>
                     </Wobble>
                 </div>
             </div>
