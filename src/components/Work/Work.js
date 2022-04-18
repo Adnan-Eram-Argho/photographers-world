@@ -21,7 +21,7 @@ const Work = (props) => {
                             Price: <span style={{ color: 'goldenrod' }}>{price}</span>
 
                         </Card.Text>
-                        <Link className='btn' to='/checkout'>Go somewhere</Link>
+                        <Link className='btn' to='/checkout'>Check Out</Link>
                     </Card.Body>
                 </Card>
             </Zoom>

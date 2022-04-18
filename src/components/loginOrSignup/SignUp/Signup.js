@@ -13,9 +13,9 @@ const Login = () => {
 
     const [
         createUserWithEmailAndPassword,
-
+        user,
+        loading,
         error,
-
     ] = useCreateUserWithEmailAndPassword(auth);
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
@@ -28,15 +28,29 @@ const Login = () => {
         setPass(e.target.value)
         console.log(pass)
     }
+    let errorElement;
+
+    if (error) {
+        console.log(error?.message)
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message}</p>
+        </div>
+
+    }
+
     const handleUserLogIn = (e) => {
 
         e.preventDefault();
-        if (error) {
-            console.log(error)
-        }
-        console.log(e.target)
-        createUserWithEmailAndPassword(email, pass).then(() => navigate(from, { replace: true }))
 
+        console.log(e.target)
+        createUserWithEmailAndPassword(email, pass)
+
+
+
+
+    }
+    if (user) {
+        navigate(from, { replace: true })
     }
     return (
         <div className='login'>
@@ -61,7 +75,11 @@ const Login = () => {
                         Sign up
                     </button><br />
                     <Link to='/signin'>Already have an Account?</Link>
+                    <div> {
+                        errorElement
+                    }</div>
                 </Form>
+
                 <GoogleSignIn></GoogleSignIn>
             </div>
         </div>

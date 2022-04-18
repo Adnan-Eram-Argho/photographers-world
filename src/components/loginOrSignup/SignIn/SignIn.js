@@ -13,7 +13,18 @@ const SignIn = () => {
     const [email1, setEmail1] = useState('')
     const [pass2, setPass2] = useState('')
 
-    const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    let errorElement;
+    if (error) {
+        console.log(error?.message)
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message}</p>
+        </div>
+    }
 
     const handleEmailLogin = (e) => {
         setEmail1(e.target.value)
@@ -29,9 +40,12 @@ const SignIn = () => {
         await signInWithEmailAndPassword(email1, pass2);
 
         console.log(user)
+
+
+
+    }
+    if (user) {
         navigate(from, { replace: true })
-
-
     }
     return (
         <div className='login'>
@@ -57,6 +71,11 @@ const SignIn = () => {
                     </button><br />
                     <Link to='/login'>Dont have an Account?</Link>
                 </Form>
+
+                <div> {
+                    errorElement
+                }</div>
+
                 <GoogleSignIn></GoogleSignIn>
             </div>
         </div>
