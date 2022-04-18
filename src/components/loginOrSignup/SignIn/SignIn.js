@@ -4,27 +4,16 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import GoogleSignIn from '../../GoogleSignIn/GoogleSignIn';
+import Loading from '../../Loading/Loading';
 
 
 const SignIn = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location?.state?.from?.pathname || "/";
+    //getting email and pass
     const [email1, setEmail1] = useState('')
     const [pass2, setPass2] = useState('')
-
-    const [signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useSignInWithEmailAndPassword(auth);
-    let errorElement;
-    if (error) {
-        console.log(error?.message)
-        errorElement = <div>
-            <p className='text-danger'>Error: {error?.message}</p>
-        </div>
-    }
 
     const handleEmailLogin = (e) => {
         setEmail1(e.target.value)
@@ -34,6 +23,25 @@ const SignIn = () => {
         setPass2(e.target.value)
         console.log(pass2)
     }
+    //signing in
+    const [signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    //loading
+    if (loading) {
+        return <><Loading></Loading></>
+    }
+    //error handeling
+    let errorElement;
+    if (error) {
+        console.log(error?.message)
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message}</p>
+        </div>
+    }
+
     const handleUserSignIn = async (e) => {
         e.preventDefault();
 
@@ -75,7 +83,7 @@ const SignIn = () => {
                 <div> {
                     errorElement
                 }</div>
-
+                {/* google sign in */}
                 <GoogleSignIn></GoogleSignIn>
             </div>
         </div>
